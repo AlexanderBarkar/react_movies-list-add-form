@@ -16,16 +16,8 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
   const isFormValid =
     title.trim() && imgUrl.trim() && imdbUrl.trim() && imdbId.trim();
 
-  const resetForm = () => {
-    setTitle('');
-    setImgUrl('');
-    setImdbUrl('');
-    setImdbId('');
-    setDescription('');
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
     if (!isFormValid) {
       return;
@@ -40,7 +32,6 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
     };
 
     onAdd(movie);
-    resetForm();
   };
 
   return (
